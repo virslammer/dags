@@ -1,0 +1,1 @@
+FILE_CATALOG_SERVICE_URL =  r"http://10.88.231.37:31624/api/v1/catalog/file/"
