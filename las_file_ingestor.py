@@ -7,8 +7,6 @@ from airflow.operators.bash import BashOperator
 import lasio
 from minio import Minio
 from io import BytesIO
-from dag_util.minio_client import minio_client
-from dag_util.dremio_client import login_dremio, add_tag_for_catalog, promote_file_to_dataset
 import pandas as pd
 import os
 import json
@@ -71,7 +69,7 @@ def add_tag_for_catalog (catalog_id, token, tags):
     response = requests.request("POST", DREMIO_BASE_URL + catalog_id + "/collaboration/tag", data=json.dumps(payload), headers=HEADERS)
     response_data = json.loads(response.text)
     return response_data
-    
+
 MINIO_URL =  '10.88.231.36:9000'
 MINIO_ACCESS_KEY =  'minioadmin'
 MINIO_SECRET_KEY =  'minioadmin'
